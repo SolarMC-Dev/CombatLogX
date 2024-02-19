@@ -92,7 +92,11 @@ public final class TagInformation {
         List<CombatTag> tagList = getTags();
         List<Entity> enemyList = new ArrayList<>();
 
+        if (tagList.isEmpty()) return enemyList;
+
         for (CombatTag combatTag : tagList) {
+            if (combatTag == null) continue;
+
             Entity enemy = combatTag.getEnemy();
             if (enemy != null) {
                 enemyList.add(enemy);
